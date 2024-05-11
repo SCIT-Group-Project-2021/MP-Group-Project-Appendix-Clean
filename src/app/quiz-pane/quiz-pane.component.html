@@ -1,0 +1,73 @@
+
+<div class= wrapper @fade>
+
+    <h1 *ngIf="timer" id="timer" style="right: 50px; position: absolute;"><countdown [config]="timerConfig"  (event)="timerEvent($event)"/></h1>
+    <div class="panel">
+
+            <h1>Review</h1>
+            <div style="width: 80%;display:flex;align-items:center;justify-content: center">
+                <mat-progress-bar mode="determinate" [value]="(currentIndex/totalQuestions)*100" class="progressbar"></mat-progress-bar>
+                <p style="font-weight: 550;">{{currentIndex}}/{{totalQuestions}}</p>
+            </div>
+
+        <div class="card" >
+            <div class="questions">
+                <p [innerHTML]="q1"></p>
+                <app-latex-paragraph [inputString]=equation></app-latex-paragraph>
+                <p [innerHTML]="q2"></p>
+            </div>
+            <div class="buttons" *ngIf="multipleChoice">
+                <div>
+                  <button mat-stroked-button class="btn" color="primary" id="option1" value="{{option1}}" (click)="checkQuestion('option1')">
+                    <app-latex-paragraph [inputString]="option1"></app-latex-paragraph>
+                  </button>
+                  <button mat-stroked-button class="btn" color="primary"  id="option2" value="{{option2}}" (click)="checkQuestion('option2')">
+                    <app-latex-paragraph [inputString]="option2"></app-latex-paragraph>
+                  </button>
+                </div>
+                <div>
+                  <button mat-stroked-button class="btn" color="primary"  id="option3" value="{{option3}}" (click)="checkQuestion('option3')">
+                    <app-latex-paragraph [inputString]="option3"></app-latex-paragraph>
+                  </button>
+                  <button mat-stroked-button class="btn" color="primary"  id="option4" value="{{option4}}" (click)="checkQuestion('option4')">
+                    <app-latex-paragraph [inputString]="option4"></app-latex-paragraph>
+                  </button>
+                </div>
+            </div>
+            <div class="buttons" *ngIf="!multipleChoice">
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Write your answer</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                      </mat-form-field>
+                </div>
+            </div>
+            <div class="report-icon floating-left">
+              <button mat-mini-fab aria-label="Report question" color="primary" class="report-btn" id="report"(click)="reportQuestion()" [disableRipple]="true">
+                <mat-icon>report</mat-icon>
+              </button>
+              <button mat-mini-fab aria-label="Restart session" color="primary" class="report-btn" id="report"(click)="endSession()" [disableRipple]="true">
+                <mat-icon>restart_alt</mat-icon>
+              </button>
+            </div>
+            <button class="floating"  color="primary" mat-button (click)="nextQuestionTest()">Next <mat-icon iconPositionEnd >arrow_forward</mat-icon></button>
+        </div>
+
+
+    </div>
+</div>
+<div class="overlay" *ngIf="showResults">
+
+
+    <div class="menuOverlay" >
+      <h1 class="quizHeaderText">Results</h1>
+      <mat-divider style="margin: 0px 80px 0px  80px;"></mat-divider>
+      <h1 style="color: #009688; font-size: 80px;">{{correctQuestions}}/{{totalQuestions}}</h1>
+      <div style="flex-grow: 1;"></div>
+      <div style="display: flex; width:100%; justify-content:center; height: 10%; margin-bottom: 25px;">
+        <button mat-flat-button color="primary" style="border-radius: 50px; width: 40%; height: 100%;" (click)="testComplete()">Complete</button>
+      </div>
+    </div>
+
+
+</div>

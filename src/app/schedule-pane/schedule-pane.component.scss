@@ -1,0 +1,82 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: calc(100vw - 10px); /* Fixed width */
+    height: calc(100vh - 40px); /* 100% of viewport height */
+    background: none;
+    //border: 1px solid #000; /* Border properties */
+    border-radius: 15px; /* Adjust the border radius */
+    margin: 7px 10px 7px 10px; /* Center horizontally */
+    padding: 120px 0px 0px 100px;
+    box-sizing: border-box; /* Include border and padding in the width */
+}
+
+.panel {
+    height: 100%;
+    width: 100%;
+    margin: 25px;
+    border-radius: 25px;
+}
+
+button:hover {
+    transform: scale(1.08);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.mainPanel {
+    height: 80%;
+    width: 100%;
+    margin: 25px;
+    border-radius: 25px;
+}
+
+.panel2 {
+    height: 50%;
+    width: 30%;
+    margin: 25px;
+    border-radius: 25px;
+}
+
+.calender {
+    height: 97%;
+    width: 100%;
+
+}
+
+.menuOverlay {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    top: calc(50% - 250px);
+    left: calc(50% - 400px);
+    width: 600px; /* Fixed width */
+    height: 400px; /* 100% of viewport height */
+    position: absolute;
+    filter: drop-shadow(-1px 2px 1px #d8d8d8);
+    border-radius: 25px;
+    justify-content: center;
+}
+
+mat-slide-toggle {
+    transform: translatey(15px) scale(1.6);
+}
+
+.menuPane {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    width: 100vw; /* Fixed width */
+    height: 100vh; /* 100% of viewport height */
+    background-color: #fdf9f7;
+    overflow: hidden; /* cuts off the clipping of the interior panes */
+    box-shadow: 0 3px 6px #a1a1a1;
+}
+
+.menuOption {
+    padding: 30px 40px 0px 40px;
+    display: flex; 
+    flex-direction:row;
+}
+
+

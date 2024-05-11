@@ -1,0 +1,42 @@
+<div class="main" @fade>
+  <div class="chatBox" *ngIf="hidden" @expand>
+      <mat-card class="topBar">
+        <div class="chat-icon">
+          <img src="/assets/images/chatbot-icon.png" alt="" style="width:35px; height:35px" >
+        </div>
+
+        <p style="font-weight: 700; color: white; font-size: 20px;">Gemini Assistant</p>
+      </mat-card>
+      <div class="messageArea">
+        <ng-container>
+          <div class="chat-bubble-container" *ngFor="let item of chatHistory" [ngClass]="{'sender': item.from === 'user'}">
+            <div class="chat-bubble">
+              <p class="responses" [innerHTML]="item.message"></p>
+            </div>
+          </div>
+
+          <ng-container *ngIf="loading" >
+            <div class="chat-bubble-loading">  <!-- Loading -->
+              <div class="pulse-loader">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+        <button mat-flat-button color="primary" style="padding: 10px; width: 70%" (click)="questionHelp()">Help with Question</button>
+      </div>
+      <div class="textBox">
+        <mat-form-field appearance="outline" style="margin-bottom: -1.25em">
+          <input matInput placeholder="Enter your message..." [(ngModel)]="prompt" (keydown.enter)="sendMessage()"/>
+          <button mat-icon-button matSuffix (click)="sendMessage()">
+            <mat-icon>send</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+  </div>
+  <button class="iconBtn " mat-mini-fab aria-label="Open chat button" color="primary" [disableRipple]="true" (click)="toggleChat()">
+    <mat-icon>{{buttonIcon}}</mat-icon>
+  </button>
+</div>

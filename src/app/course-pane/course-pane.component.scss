@@ -1,0 +1,75 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: calc(100vw - 10px); /* Fixed width */
+    height: calc(100vh - 40px); /* 100% of viewport height */
+    background: none;
+    //border: 1px solid #000; /* Border properties */
+    border-radius: 15px; /* Adjust the border radius */
+    margin: 7px 10px 7px 10px; /* Center horizontally */
+    padding: 120px 0px 0px 100px;
+    box-sizing: border-box; /* Include border and padding in the width */
+}
+
+.overviewEvents {
+    height: 100%;
+    margin: 25px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    background-color: white;
+    border: 1px solid #000;
+    border-color: rgb(26, 98, 192);
+    padding: 20px;
+    height: fit-content;
+    width: 500px;
+    filter: drop-shadow(-1px 2px 1px #d8d8d8);
+}
+
+.card-content:hover {
+    transform: scale(1.08);
+    transition: transform 0.2s;
+}
+
+.statCard {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: white;
+    margin: 25px;
+    padding: 20px;
+    height: 150px;
+    width: 150px;
+    justify-self: center;
+
+    filter: drop-shadow(-1px 2px 1px #d8d8d8);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    margin: 20px;
+    padding: 20px;
+    cursor: pointer;
+    filter: drop-shadow(-1px 2px 1px #d8d8d8);
+}
+
+.aligned-with-icon{
+    margin: 0;
+    margin-top: 5px;
+    font-size: 25px;
+}
+
+mat-icon {
+    transform: scale(4);
+}
+
+p {
+    margin: 0;
+    color: gray;
+    font-size: 12px;
+}

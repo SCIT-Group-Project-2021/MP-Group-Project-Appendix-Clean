@@ -1,0 +1,167 @@
+.wrapper {
+    height: 100%;
+    margin: 0;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: calc(100vw - 10px); /* Fixed width */
+    height: calc(100vh - 40px); /* 100% of viewport height */
+    background: none;
+    //border: 1px solid #000; /* Border properties */
+    border-radius: 15px; /* Adjust the border radius */
+    margin: 7px 10px 7px 10px; /* Center horizontally */
+    padding: 120px 0px 0px 100px;
+    box-sizing: border-box; /* Include border and padding in the width */
+}
+
+.notifContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    //background-color: red;
+    //background: none;
+}
+
+.notifItem {
+    background-color: white;
+    margin: 0px 30px 0px 0px; /* Center horizontally */
+    border-radius: 25px;
+    flex-grow: 1;
+    width: 600px;
+    filter: drop-shadow(-1px 2px 1px #d8d8d8);
+}
+
+.dashCards {
+    display: flex;
+    flex-direction: column;
+    height: 20%;
+    background-color: #49beb7;
+    border-radius: 15px;
+    margin: 5px 0px 20px 15px;
+    //background-color: red;
+    //background: none;
+
+}
+
+.courseIcon {
+    width: 50px;
+    height: 50px;
+    content: url("https://img.icons8.com/49BEB7/ios-filled/50/courses.png");
+}
+
+.reviewIcon {
+  width: 50px;
+  height: 50px;
+  content: url("https://img.icons8.com/49BEB7/fluency-systems-filled/48/replay.png");
+}
+
+.topicIcon {
+  width: 50px;
+  height: 50px;
+  content: url("https://img.icons8.com/49BEB7/pastel-glyph/64/certificate.png");
+}
+
+.quizIcon {
+  width: 50px;
+  height: 50px;
+  content: url("https://img.icons8.com/49BEB7/ios/50/test-passed--v1.png");
+}
+
+.completedQuizIcon {
+  width: 50px;
+  height: 50px;
+  content: url("https://img.icons8.com/49BEB7/fluency-systems-regular/96/grades.png");
+}
+
+.sessionIcon{
+  width: 50px;
+  height: 50px;
+  content: url("https://img.icons8.com/49BEB7/pastel-glyph/64/time-machine.png");
+}
+.overviewContainer {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    margin: 0px 30px 0px 0px;
+    //background-color: white;
+    //background: none;
+}
+
+.overviewMain {
+
+    flex-grow: 1;
+    margin: 0px 20px 0px 0px; /* Center horizontally */
+    border-radius: 25px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    filter: drop-shadow(-1px 2px 1px #d8d8d8);
+}
+
+.overviewEvents {
+    height: 100%;
+    width: 30%;
+    border-radius: 25px;
+    background-color: white;
+    filter: drop-shadow(-1px 2px 1px #d8d8d8);
+}
+
+.titleBar {
+    display: flex;
+
+    justify-content: left;
+    align-items: center;
+    height: 125px;
+    font-family: rubik;
+    font-weight: 300;
+    font-size: 25px;
+}
+
+.seperator {
+    display: flex;
+    align-items: center;
+    height: 75px;
+    font-family: rubik;
+    font-weight: 300;
+    font-size: 35px;
+}
+
+p {
+    line-height: 0;
+}
+
+.addIcon {
+    background: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 2px;
+    content: url("https://img.icons8.com/49BEB7/ios-filled/50/plus-2-math.png");
+}
+
+.addIcon:hover {
+    rotate: 90deg;
+}
+
+.notifIcon {
+    width: 48px;
+    height: 48px;
+    position: relative;
+    rotate: -35deg;
+    top: -4px;
+    left: -5px;
+    content: url("https://img.icons8.com/49BEB7/external-linear-outline-icons-papa-vector/78/external-Notifications-interface-linear-outline-icons-papa-vector.png");
+}
+
+.borderDiv {
+    width: 40px;
+    height: 40px;
+    background: none;
+    border-radius: 10px;
+    border: 3px;
+    border-color: #49BEB7;
+    border-style: solid;
+}

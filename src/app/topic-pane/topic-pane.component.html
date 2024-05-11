@@ -1,0 +1,69 @@
+<div class="wrapper" @fade>
+  <div class="overviewMain">
+    <mat-stepper #stepper class="stepper" [selectedIndex]="stepperIndex" style="width: 100%">
+      <mat-step [editable]="false">
+        <ng-template matStepLabel>Intro</ng-template>
+      </mat-step>
+      <mat-step label="Communication Style" [editable]="false">
+        <ng-template matStepLabel>Explanation</ng-template>
+      </mat-step>
+      <mat-step [editable]="false">
+        <ng-template matStepLabel>Interactive Section</ng-template>
+      </mat-step>
+      <mat-step [editable]="false">
+        <ng-template matStepLabel>Summary</ng-template>
+      </mat-step>
+    </mat-stepper>
+    <div *ngIf="!questionSection">
+      <div class="story" [hidden]="storyCheck">
+        <h3 [innerHTML]="header"></h3>
+        <p [innerHTML]="p1"></p>
+      </div>
+      <div [hidden]="!storyCheck">
+        <iframe [src]="iframeSrc" title="YouTube video player" *ngIf="!youtubeLinkCheck" style="display: block;margin: 0 auto;width:70%; min-height:50vh" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p [innerHTML]="p1" [hidden]="!storyCheck"></p>
+        <br />
+        <div class="equation" [hidden]="equationCheck">
+          <app-latex-paragraph [inputString]="equation"></app-latex-paragraph>
+        </div>
+        <br />
+        <p [innerHTML]="p2"></p>
+      </div>
+
+      <button mat-flat-button class="nextBtn" style="position: absolute; right: 0; margin: 30px 100px"
+        (click)="switchFunction()" *ngIf="!questionSection" color="primary">
+        Next <mat-icon iconPositionEnd>arrow_forward</mat-icon>
+      </button>
+    </div>
+    <div class="panel" *ngIf="questionSection">
+      <div class="card">
+        <div class="questions">
+          <p [innerHTML]="q1"></p>
+          <app-latex-paragraph [inputString]="equation"></app-latex-paragraph>
+          <p [hidden]="p2Bool">{{ q2 }}</p>
+        </div>
+        <div class="buttons">
+          <div>
+            <button mat-stroked-button class="btn" color="primary" id="option1" value="{{option1}}" (click)="checkQuestion('option1')">
+              <app-latex-paragraph [inputString]="option1"></app-latex-paragraph>
+            </button>
+            <button mat-stroked-button class="btn" color="primary"  id="option2" value="{{option2}}" (click)="checkQuestion('option2')">
+              <app-latex-paragraph [inputString]="option2"></app-latex-paragraph>
+            </button>
+          </div>
+          <div>
+            <button mat-stroked-button class="btn" color="primary"  id="option3" value="{{option3}}" (click)="checkQuestion('option3')">
+              <app-latex-paragraph [inputString]="option3"></app-latex-paragraph>
+            </button>
+            <button mat-stroked-button class="btn" color="primary"  id="option4" value="{{option4}}" (click)="checkQuestion('option4')">
+              <app-latex-paragraph [inputString]="option4"></app-latex-paragraph>
+            </button>
+          </div>
+        </div>
+        <button class="floating" color="primary" mat-button (click)="nextQuestion()">
+          Next <mat-icon iconPositionEnd>arrow_forward</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

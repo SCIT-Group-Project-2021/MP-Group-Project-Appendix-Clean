@@ -1,0 +1,70 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: calc(100vw - 10px); /* Fixed width */
+    height: calc(100vh - 40px); /* 100% of viewport height */
+    background: none;
+    //border: 1px solid #000; /* Border properties */
+    border-radius: 15px; /* Adjust the border radius */
+    margin: 7px 10px 7px 10px; /* Center horizontally */
+    padding: 120px 0px 0px 100px;
+    box-sizing: border-box; /* Include border and padding in the width */
+}
+
+.panel {
+    display: flex;
+    height: 90%;
+    width: 90%;
+    margin: 25px;
+    border-radius: 25px;
+    align-items: center;
+}
+
+.menuOverlay {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    width:100%; /* Fixed width */
+    height: 100%; /* 100% of viewport height */
+    filter: drop-shadow(-1px 2px 1px #d8d8d8);
+    border-radius: 25px;
+    justify-content: center;
+}
+
+mat-slide-toggle {
+    transform: translatey(15px) scale(1.6);
+}
+
+.menuOption {
+    padding: 30px 90px 0px 90px;
+    display: flex; 
+    flex-direction:row;
+}
+
+.quizHeaderText {
+    font-size: 30px;
+    font-weight: 550;
+    margin: 40px;
+    text-align: center;
+    justify-self: end;
+
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: 550;
+    margin: 0;
+    text-align: center;
+    justify-self: end;
+}
+
+.reveal {
+    background-color: #ffffff; 
+    height: 100%;
+    width: 600px;
+    top: calc(50% - 325px);
+    left: 25px;
+    margin: 25px;
+    border-radius: 50px;
+    filter: drop-shadow(-1px 2px 1px #d8d8d8);
+}

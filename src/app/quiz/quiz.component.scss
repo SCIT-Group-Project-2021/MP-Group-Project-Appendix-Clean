@@ -1,0 +1,118 @@
+.pane {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    width: 100vw; /* Fixed width */
+    height: 100vh; /* 100% of viewport height */
+    background-color: #fdf9f7;
+    overflow: hidden; /* cuts off the clipping of the interior panes */
+    box-shadow: 0 3px 6px #a1a1a1;
+}
+
+.rightPane {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50vw;
+    z-index: 1;
+    overflow: hidden;
+
+}
+
+::ng-deep .mat-horizontal-stepper-header{
+  pointer-events: none !important;
+
+}
+
+.stepper{
+  background-color: #fdf9f7;
+}
+
+.leftPane {
+    height: 100%;
+    width: 50vw;
+    background-color: #49BEB7;
+    z-index: 2;
+    object-fit: fill;
+
+}
+
+.learnerIcon {
+    width: 150px;
+    height: 150px;
+    transform: scale(3);
+}
+
+.reveal {
+    position: absolute;
+    background-color: #fdf9f7; 
+    height: 70%;
+    width: 25%;
+    left: 37.5%;
+    top: 10%;
+    z-index:1000;
+    border-radius: 50px;
+    filter: drop-shadow(2px 3px 2px #d8d8d871);
+}
+
+.startButton {
+    margin: 30px;
+    height: 70px;
+    width: 200px;
+    border-radius: 35px;
+
+}
+
+.p1 {
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.p2 {
+
+    width: 40vw;
+}
+
+.radio {
+    color: "primary";
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+
+}
+
+div [hidden] {
+    flex: 0;
+    display: none;
+}
+
+h1 {
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+}
+
+h2 {
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+h3 {
+    text-align: center;
+    font-style: normal;
+}
+
+p {
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+}

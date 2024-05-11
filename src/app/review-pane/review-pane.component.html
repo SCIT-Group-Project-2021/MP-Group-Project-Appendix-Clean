@@ -1,0 +1,83 @@
+
+<div class= wrapper @fade>
+
+    <div class="panel">
+      <!-- TODO: Add topic drop down-->
+        <button class="card" (click)="quiz()" [disabled]="!quizAvailable">
+            <div class="subCard" style="background-color: #d3e4f1;">
+                <img width="76" height="76" src="https://img.icons8.com/windows/769DB9/hourglass--v1.png" alt="hourglass--v1"/>
+            </div>
+            <h1>Quiz</h1>
+            <div class="buttontest">quiz 2 due</div>
+        </button>
+
+        <button class="card" (click)="flashCards()" [disabled]="true" matTooltip="Currently Unavailable, Work in Progress">
+            <div class="subCard" style="background-color: #e2d3f1;">
+                <img width="76" height="76" src="https://img.icons8.com/external-glyph-andi-nur-abdillah/AB92C9/external-Cards-football-(glyph)-glyph-andi-nur-abdillah.png"/>
+            </div>
+            <h1>Flashcards</h1>
+            <div class="buttontest">0 cards due</div>
+        </button>
+
+        <button class="card" (click)="quickQuiz()" [disabled]="!quizAvailable">
+            <div class="subCard" style="background-color: #d3f1e7;">
+                <img width="76" height="76" src="https://img.icons8.com/ios/50/76B97F/test-passed--v1.png" alt="test-passed--v1"/>
+            </div>
+            <h1>10 Quick Questions</h1>
+            <div class="buttontest">Previous grade: {{lastGrade}}%</div>
+        </button>
+
+        <button class="card" (click)="missedQuiz()" [disabled]="!quizAvailable" >
+            <div class="subCard" style="background-color: #f6daf3;">
+                <img width="76" height="76" src="https://img.icons8.com/ios-glyphs/DF98D6/help.png" alt="help"/>
+            </div>
+            <h1>Missed Questions Quiz</h1>
+            <div class="buttontest">{{missedQ}} questions to review</div>
+        </button>
+    </div>
+    
+    <div class="menuOverlay" *ngIf="quizSettings" >
+        <h1 class="quizHeaderText">Quiz Settings</h1>
+        <button mat-icon-button (click)="togglequizMenu()" style="right:25px;top:25px; position:absolute">
+            <mat-icon class="exit">close</mat-icon>
+        </button>
+        <mat-divider style="margin: 0px 80px 0px  80px;"></mat-divider>
+        <div class="menuOption">
+                <div>
+                    <h1 style="margin: 0px; text-align:left">Topic</h1>
+                    <p style="margin-top: 5px;">Select topic for quiz</p>
+                </div>
+                <div style="flex-grow: 1;"></div>
+                <mat-form-field style="float: right;" color="primary">
+                    <mat-label>Topics</mat-label>
+                    <mat-select [(ngModel)]="selectedValue" [formControl]="topicsFormControl" multiple (selectionChange)="changeClient($event.value)">
+                      <mat-option *ngFor="let topics of topicList" [value]="topics" [value]="topics">{{topics}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+        </div>
+        <div class="menuOption">
+            <div>
+                <h1 style="margin: 0px; text-align:left">Timed Question</h1>
+                <p style="margin-top: 5px;">Time's how long it takes to answer a question</p>
+            </div>
+            <div style="flex-grow: 1;"></div>
+            <mat-slide-toggle style="float: right;" color="primary" checked={{timer}} (change)="timerToggle()"></mat-slide-toggle>
+        </div>
+        <div class="menuOption">
+            <div>
+                <h1 style="margin: 0px; text-align:left">Time</h1>
+                <p style="margin-top: 5px;">Set the time limit</p>
+            </div>
+            <div style="flex-grow: 1;"></div>
+            <mat-slider min="5" max="60" step="5" showTickMarks discrete disabled={{!timer}} >
+                <input matSliderThumb [(ngModel)]="timerValue">
+            </mat-slider>
+        </div>
+        <div style="flex-grow: 1;"></div>
+        <div style="display: flex; width:100%; justify-content:center; height: 10%; margin-bottom: 25px;">
+            <button mat-flat-button color="primary" style="border-radius: 50px; width: 40%; height: 100%;" (click)="quizStart()">Continue</button>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,7 @@
+<app-navbar-bar *ngIf="isLoggedIn()"/>
+<app-topbar *ngIf="isLoggedIn()"/>
+<app-chat-popup *ngIf="onContentPage()"/>
+<app-loading-pane *ngIf="isloading"/>
+<router-outlet></router-outlet>
+
+

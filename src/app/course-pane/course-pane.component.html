@@ -1,0 +1,45 @@
+
+<div class= wrapper @fade>
+    <div class="overviewEvents">
+        <div style="display: flex;flex-direction:column">
+            <div class="card" *ngFor="let unit of units; let i = index">
+                <h1>Unit : {{ unit.Title }}</h1>
+                <div class="card-content" (click)="goToTab('topic','Topic',topics.topicValue)" *ngFor="let topics of unit.topics; let i = index">
+                    <div>
+                        <mat-icon fontIcon="radio_button_unchecked" style="margin-top: 25px; margin-right:40px"></mat-icon>
+                    </div>
+                    <div style="display: flex; flex-direction:column">
+                        <h1 class="aligned-with-icon">{{topics.Title}}</h1>
+                        <p>{{topics.Descriptor}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overviewEvents">
+        <div>
+            <h1>Statistics</h1>
+            <div style="display: flex;">
+                <div class="statCard" style="align-items: center;">
+                    <h1 style="color: #49BEB7">{{avgTestScore}}%</h1>
+                    <h3 style="margin:0px; text-align: center">average quiz score</h3>
+                </div>
+                <div class="statCard" style="align-items: center;">
+                    <h1 style="color: #49BEB7">{{totalQuestions}} Qstns</h1>
+                    <h3 style="margin:0px; text-align: center">answered correctly</h3>
+                </div>
+                <div class="statCard" style="align-items: center;">
+                    <h1 style="color: #49BEB7">{{dateTillExam}} days</h1>
+                    <h3 style="margin:0px; text-align: center">Until Final Exam</h3>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1>Feedback</h1>
+            <div class="statCard" style="width: 650px;align-items: left;">
+                <h2 style="font-size: 20px;line-height: 30px; margin-top: 0px; text-align:left" [innerHTML]="feedback"></h2>
+            </div>
+        </div>
+    </div>
+</div>

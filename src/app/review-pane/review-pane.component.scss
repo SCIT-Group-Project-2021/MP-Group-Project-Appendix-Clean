@@ -1,0 +1,109 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: calc(100vw - 10px); /* Fixed width */
+    height: calc(100vh - 40px); /* 100% of viewport height */
+    background: none;
+    //border: 1px solid #000; /* Border properties */
+    border-radius: 15px; /* Adjust the border radius */
+    margin: 7px 10px 7px 10px; /* Center horizontally */
+    padding: 120px 0px 0px 100px;
+    box-sizing: border-box; /* Include border and padding in the width */
+}
+
+.panel {
+    display: flex;
+    height: 60%;
+    width: 90%;
+    margin: 25px;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover .subCard{
+    height: 150px;
+    width: 150px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: white;
+    margin: 55px;
+    padding: 20px;
+    height: 300px;
+    width: 300px;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(-1px 2px 1px #d8d8d8);
+    cursor: pointer;
+}
+
+.subCard {
+    display: flex;
+    border-radius: 25px;
+    margin: 15px;
+    height: 125px;
+    width: 125px;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(-1px 2px 1px #d8d8d8);
+}
+
+.menuOverlay {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    top: calc(50% - 250px);
+    left: calc(50% - 400px);
+    width: 800px; /* Fixed width */
+    height: 500px; /* 100% of viewport height */
+    position: absolute;
+    filter: drop-shadow(-1px 2px 1px #d8d8d8);
+    border-radius: 25px;
+    justify-content: center;
+}
+
+mat-slide-toggle {
+    transform: translatey(15px) scale(1.6);
+}
+
+.menuOption {
+    padding: 30px 90px 0px 90px;
+    display: flex; 
+    flex-direction:row;
+}
+
+.quizHeaderText {
+    font-size: 30px;
+    font-weight: 550;
+    margin: 40px;
+    text-align: center;
+    justify-self: end;
+
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: 550;
+    margin: 0;
+    text-align: center;
+    justify-self: end;
+}
+
+.buttontest {
+    width: 90%;
+    height: 25px;
+    background-color: #eafff7;
+    border: 1px solid #000;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+}
+
+

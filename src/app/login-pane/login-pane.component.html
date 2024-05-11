@@ -1,0 +1,32 @@
+<div class="pane">
+    <div class="leftPane" @invert></div>
+        <form [formGroup]="form" (submit)="logIn()" class="rightPane" @fade>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Ex. pat@example.com" style="margin-bottom: 5px;" formControlName="email">
+            <mat-error *ngIf="form.get('email')!.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="form.get('email')!.hasError('email')">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+          <!-- TODO: Make password field have unhide icon -->
+            <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder="password" formControlName="password">
+            <mat-error *ngIf="form.get('password')!.hasError('required')">
+              Password is required
+            </mat-error>
+          </mat-form-field>
+          <div class="aligned-to-right">
+            <button mat-button [disabled]="!form.get('email')!.valid" class="aligned-to-right" test-id="recover-password-btn">Forgot password?</button>
+          </div>
+          <button mat-flat-button color="primary" [disabled]="!form.valid" test-id="log-in-button" *ngIf="!isLoggingIn">LOG IN</button>
+          <button mat-flat-button color="primary" test-id="log-in-loader" *ngIf="isLoggingIn">
+            <mat-spinner color="accent" diameter="28"></mat-spinner>
+          </button>
+          <button mat-stroked-button color="primary" (click)="toRegister()">REGISTER</button>
+
+        </form>
+</div>

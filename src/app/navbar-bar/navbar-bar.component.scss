@@ -1,0 +1,123 @@
+.navBar {
+    display: flex;
+    flex-direction: column;
+    width: 75px; /* Fixed width */
+    height: calc(100vh - 40px); /* 100% of viewport height */
+    background-color: #FFFFFF;
+    //border: 1px solid #000; /* Border properties */
+    border-radius: 15px; /* Adjust the border radius */
+    margin: 7px 10px 7px 10px; /* Center horizontally */
+    box-sizing: border-box; /* Include border and padding in the width */
+    position: fixed;
+    overflow: hidden;
+    z-index: 100;
+    //filter: drop-shadow(3px 2px 1px #d8d8d8);
+}
+
+/*.navBar:hover {
+    width: 350px;
+}*/
+ 
+.navBar:hover .iconText {
+    display: flex;
+    //margin: 10px 20px 10px 20px; /* Center horizontally */
+    /*color: #49BEB7;*/
+}
+
+.navBar:hover .navBarButton {
+    justify-content: left;
+}
+
+.navBarButton:hover .navIcon {
+    width: 70px;
+    height: 70px;
+}
+
+.navIcon {
+    scale: 75%;
+    padding: 10px;
+    background-color: black;
+    background: none;
+    //margin: 10px 30px 12.5px 12.5px;
+}
+
+.navBarButton:hover .iconText {
+    font-size: 25px;
+}
+
+.iconText {
+    display: none;
+    //opacity: 0;
+    font-family: rubik;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    text-wrap: nowrap;
+}
+
+.navBarButton {
+    
+    width: 100%; /* Fixed width */
+    height: 75px; /* 100% of viewport height */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    //background-color: rgb(250, 234, 234);
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.logoIcon {
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.menuIcon {
+    width: 50px;
+    height: 50px;
+    content: url("https://img.icons8.com/49BEB7/external-kmg-design-glyph-kmg-design/64/external-dashboard-user-interface-kmg-design-glyph-kmg-design.png");
+}
+
+.courseIcon {
+    width: 50px;
+    height: 50px;
+    content: url("https://img.icons8.com/ios/50/courses.png");
+}
+
+.reviewIcon {
+    width: 50px;
+    height: 50px;
+    content: url("https://img.icons8.com/ios/50/test-passed--v1.png");
+}
+
+.progressIcon {
+    width: 50px;
+    height: 50px;
+    content: url("https://img.icons8.com/ios/50/positive-dynamic--v1.png");
+}
+
+.scheduleIcon {
+    width: 50px;
+    height: 50px;
+    content: url("https://img.icons8.com/ios/50/planner.png");
+}
+
+.settingsIcon {
+    width: 50px;
+    height: 50px;
+    content: url("https://img.icons8.com/ios/3754/settings--v1.png");
+}
+
+.learnerIcon {
+    width: 50px;
+    height: 50px;
+    content: url("https://img.icons8.com/ios/50/gender-neutral-user--v1.png");
+}
+
+.logOutIcon {
+    width: 50px;
+    height: 50px;
+    content: url("https://img.icons8.com/ios/50/exit--v1.png");
+}

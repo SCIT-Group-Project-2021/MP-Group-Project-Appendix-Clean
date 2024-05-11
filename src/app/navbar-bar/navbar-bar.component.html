@@ -1,0 +1,56 @@
+
+<div class="navBar" (mouseenter)="animate()" (mouseleave)="animate()" [@expand]="isOpen ? 'open' : 'closed'" @fade>
+
+    <div class="navBarButton">
+        <img class="logoIcon" src="./assets/images/logo.png"/>
+        <h1 class="iconText" style="font-weight: 200; font-size: calc(40px*0.75);">SmartLearn Hub</h1>
+    </div>
+
+    <div style="height: calc(50px*0.75);"></div>
+
+    <button class="navBarButton" id="dashboard" (click)="goToTab('dashboard','Dashboard')">
+        <img class="menuIcon navIcon"/>
+        <h1 class="iconText">Dashboard</h1>
+    </button>
+
+    <button class="navBarButton" id="course" (click)="goToTab('course','Course')">
+        <img class="courseIcon navIcon"/>
+        <h1 class="iconText" >Course</h1>
+    </button>
+
+    <button class="navBarButton" id="review" (click)="goToTab('review','Review')">
+        <img class="reviewIcon navIcon"/>
+        <h1 class="iconText">Review</h1>
+    </button>
+
+    <!-- TODO: implement progress page-->
+    <button class="navBarButton" id="progress" (click)="goToTab('progress','Progress')" matTooltip="Currently Unavailable, Work in Progress" [disabled]="true">
+        <img class="progressIcon navIcon"/>
+        <h1 class="iconText">Progress</h1>
+    </button>
+
+    <button class="navBarButton" id="schedule" (click)="goToTab('schedule','Schedule')">
+        <img class="scheduleIcon navIcon"/>
+        <h1 class="iconText">Schedule</h1>
+    </button>
+
+ 
+    <button class="navBarButton" id="settings" (click)="goToTab('settings','Settings') ">
+        <img class="settingsIcon navIcon"/>
+        <h1 class="iconText">Settings</h1>
+    </button>
+
+    <!-- TODO: remove
+    <button class="navBarButton" id="quiz" (click)="goToTab('quiz','Quiz')" hidden="true" matTooltip="For Testing Purposes Only">
+        <img class="learnerIcon navIcon"/>
+        <h1 class="iconText">Learner</h1>
+    </button>-->
+
+    <div style="flex-grow: 1;"></div>
+
+    <button class="navBarButton" (click)="logOut()">
+        <img class="logOutIcon navIcon"/>
+        <h1 class="iconText">Log Out</h1>
+    </button>
+
+</div>

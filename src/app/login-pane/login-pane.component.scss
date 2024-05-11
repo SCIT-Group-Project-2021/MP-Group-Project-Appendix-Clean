@@ -1,0 +1,65 @@
+
+.pane {
+    margin: 100px auto;
+    display: flex;
+    flex-direction: row;
+    width: calc(70vw - 40px); /* Fixed width */
+    height: calc(80vh - 40px); /* 100% of viewport height */
+    background-color: #FFFFFF;
+    border-radius: 15px; /* Adjust the border radius */
+    overflow: hidden; /* cuts off the clipping of the interior panes */
+    box-shadow: 0 3px 6px #a1a1a1;
+}
+
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+
+  button, mat-form-field {
+    margin-left: 180px;
+    margin-right: 180px;
+    width: -webkit-fill-available;
+  }
+
+  button {
+    margin-bottom: 10px;
+
+    &[mat-button]{
+      width: auto;
+    }
+  }
+}
+
+.aligned-to-right{
+  text-align: right;
+  width:100%;
+}
+
+.rightPane {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+
+}
+
+.leftPane {
+    height: 100%;
+    width: 100%;
+    background-color: #49BEB7;
+    z-index: 2;
+}
+
+.text {
+    font-family: rubik;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+}

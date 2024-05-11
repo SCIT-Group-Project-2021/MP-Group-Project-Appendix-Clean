@@ -1,0 +1,54 @@
+<div *ngFor="let category of categories; let i = index">
+    <div class="pane" [hidden]="category.isHidden">
+        
+        <div class="leftPane" @fade [hidden]="!category.questionsHidden" style="background: url(/assets/images/quiz_image_1.png); background-size: cover; background-repeat: no-repeat; background-position: center;" priority></div>
+        <div class="rightPane" @invert>
+          <mat-stepper #stepper [hidden]="category.questionsHidden" class="stepper" [selectedIndex]="stepperI" style="width: 100%;">
+            <mat-step [editable]="false">
+              <ng-template matStepLabel>Work Approach</ng-template>
+            </mat-step>
+            <mat-step label="Communication Style" [editable]="false">
+              <ng-template matStepLabel>Communication Style</ng-template>
+            </mat-step>
+            <mat-step [editable]="false">
+              <ng-template matStepLabel>Cognitive Approach</ng-template>
+            </mat-step>
+          </mat-stepper>
+          <div style="flex-grow: 1;"></div>
+            <div [hidden]="!category.questionsHidden">
+                <h1 >{{ category.title }}</h1>
+                <p class="p2">{{ category.description }}</p>
+            </div>
+            <div [hidden]="category.questionsHidden">
+                <div *ngFor="let question of questions; let x = index" [hidden]="question.isHidden">
+                    <h2 style="text-align: center; text-wrap: wrap; width: 500px; height: 100px;">{{ question.description }}</h2>
+                    <div style="display: flex; justify-content: center;">
+                        <label>
+                            <button class="radio" mat-stroked-button (click)="question.isTrue = true" (click)="category.function()">True</button>
+                        </label>
+                        <div style="width: 50px;"></div>
+                        <label>
+                            <button class="radio" mat-stroked-button (click)="question.isTrue = false" (click)="category.function()">False</button>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="startButton" [hidden]="!category.questionsHidden" mat-flat-button color="primary" (click)="category.function()">{{ category.button }}</button>
+            <div style="flex-grow: 1;"></div>
+          </div>
+          <div *ngIf="reveal" class="pane" style="position: absolute;background-color: rgba(0, 0, 0, 0.363);z-index:99">
+            <div class="reveal" @invert >
+              <div style="margin: 50px;display: flex;flex-direction: column;align-items:center">
+                <h3>Your are a:</h3>
+                  <h1 style="margin-bottom:50px" [style.color]="learnerColor" >{{learnerType}}</h1>
+                <img class=learnerImg [ngSrc]="learnerImg" width="200px" height="180px" priority>
+                <p style="margin-top:50px">{{learnerDescriptor}}</p>
+                <button mat-flat-button color="primary" style="border-radius: 50px;width: 50%; height:60px; margin-top:50px" (click)="endTest()">Continue</button>
+              </div>
+            </div>
+          </div>
+          
+    </div>
+
+    
+</div>

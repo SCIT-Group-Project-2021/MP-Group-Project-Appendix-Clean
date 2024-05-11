@@ -1,0 +1,60 @@
+<div class= wrapper >
+
+    <div class="panel">
+        <div class="reveal" @fade>
+            <div style="margin: 50px;display: flex;flex-direction: column;align-items:center">
+            <h3>Learner Type:</h3>
+                <h1 style="margin-bottom:50px" [style.color]="" >{{learnerType}}</h1>
+            <input type="file" accept=".png,.jpg" (change)="uploadImage()"[hidden]="true" #file>    
+            <img [src]=userPhoto width="200px" height="180px" (click)="file.click()" style="cursor: pointer;">
+            <p style="margin-top:50px">Profile Picture</p>
+            <button mat-flat-button color="primary" style="border-radius: 50px;width: 50%; height:60px; margin-top:50px" (click)="uploadImage()" matTooltip="Currently Unavailable, Work in Progress">Upload</button>
+            </div>
+        </div>
+
+        <div class="menuOverlay" @fade>
+            <h1 class="quizHeaderText">Settings</h1>
+            <mat-divider style="margin: 0px 80px 0px  80px;"></mat-divider>
+            <div class="menuOption">
+                    <div>
+                        <h1 style="margin: 0px; text-align:left">Quiz Frequency</h1>
+                        <p style="margin-top: 5px;">How often Quizes are available</p>
+                    </div>
+                    <div style="flex-grow: 1;"></div>
+                    <mat-form-field style="width: 100px;">
+                        <mat-label>Frequency</mat-label>
+                        <input matInput type="number" [min]="1" [value]="frequency">
+                    </mat-form-field>
+                    <mat-form-field style="width: 100px;">
+                        <mat-label>Interval</mat-label>
+                        <mat-select [value]="frequencyInterval">
+                            <mat-option value="day">day</mat-option>
+                            <mat-option value="week">week</mat-option>
+                            <mat-option value="month">month</mat-option>
+                          </mat-select>
+                    </mat-form-field>
+            </div>
+            <div class="menuOption">
+                <div>
+                    <h1 style="margin: 0px; text-align:left">Number of Questions</h1>
+                    <p style="margin-top: 5px;">The amount of questions per quiz</p>
+                </div>
+                <div style="flex-grow: 1;"></div>
+                <mat-form-field style="width: 200px;">
+                    <mat-label>Questions</mat-label>
+                    <input matInput type="number"  [min]="5" [value]="numberOfQuestions">
+                </mat-form-field>
+            </div>
+            
+            <div style="flex-grow: 1;"></div>
+            <div style="display: flex; width:100%; justify-content:center; height: 10%; margin-bottom: 75px;margin-top: 75px">
+                <button mat-flat-button color="primary" style="border-radius: 50px; width: 40%; height: 100%; " matTooltip="Currently Unavailable, Work in Progress">Save</button>
+            </div>
+        </div>
+        
+        
+    </div>
+
+    
+
+</div>

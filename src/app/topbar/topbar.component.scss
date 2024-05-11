@@ -1,0 +1,82 @@
+.titleBar {
+    display: flex;
+    width: calc(100vw - 160px); /* Fixed width */
+    justify-content: left;
+    align-items: center;
+    height: 125px;  /* 100% of viewport height */
+    font-family: rubik; 
+    font-weight: 300;
+    font-size: 25px;
+    margin: 0px 0px 0px 110px; /* Center horizontally */
+    box-sizing: border-box; /* Include border and padding in the width */
+    position: fixed;
+    overflow: hidden;
+    z-index: 99;
+}
+
+p {
+    line-height: 0;
+}
+
+.addIcon {
+    background: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 2px;
+    content: url("https://img.icons8.com/49BEB7/ios-filled/50/plus-2-math.png");
+}
+
+.addIcon:hover {
+    rotate: 90deg;
+}
+
+.notifIcon {
+    width: 48px;
+    height: 48px;
+    position: relative;
+    rotate: -35deg;
+    top: -4px;
+    left: -5px;
+    content: url("https://img.icons8.com/49BEB7/external-linear-outline-icons-papa-vector/78/external-Notifications-interface-linear-outline-icons-papa-vector.png");
+}
+
+.borderDiv {
+    width: 40px;
+    height: 40px;
+    background: none;
+    border-radius: 10px; 
+    border: 3px;
+    border-color: #49BEB7;
+    border-style: solid;
+}
+
+.overlay {
+    position: absolute;
+    background-color:white; z-index:1000;
+    width: calc(100vw - 10px);
+    height: calc(100vh - 10px);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.settingsButton {
+    margin: 30px;
+    transform: translateY(-50px);
+    color: rgb(0, 0, 0);
+}
+
+.settingsButton:hover {
+    transform: scale(1.2) translateY(-40px);
+}
+
+
+
+.exit {
+    transform: scale(3);
+    color: rgb(44, 44, 44);
+}

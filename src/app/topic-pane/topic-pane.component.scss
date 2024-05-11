@@ -1,0 +1,120 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: calc(100vw - 10px); /* Fixed width */
+    height: calc(100vh - 40px); /* 100% of viewport height */
+    background: none;
+    //border: 1px solid #000; /* Border properties */
+    border-radius: 15px; /* Adjust the border radius */
+    margin: 7px 10px 7px 10px; /* Center horizontally */
+    padding: 120px 0px 0px 100px;
+    box-sizing: border-box; /* Include border and padding in the width */
+}
+
+.overviewMain {
+    padding: 0px 90px 90px 90px;
+    flex-grow: 1;
+    margin: 0px 20px 0px 0px; /* Center horizontally */
+    border-radius: 25px;
+    position: relative;
+
+}
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: 87%;
+  width: 100%;
+  margin: 0px;
+  padding: 25px;
+  margin-right: 25px;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+
+p{
+  font-size: 22px;
+}
+
+.equation{
+  margin: 30px;
+  background-color: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-left: 5px solid;
+  border-color: #49beb7;
+}
+
+.nextBtn{
+  width:150px;
+  height:50px;
+  font-size: 20px;
+}
+
+.story{
+  width: 70%;
+  height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    border-left: 5px solid;
+    border-color: #49beb7;
+    background-color: white;
+}
+
+.stepper {
+  margin-bottom: 40px;
+  background-color: #f4f7fe;
+}
+
+.questions{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  flex-grow: 1;
+  text-wrap: wrap;
+}
+
+
+.btn {
+  margin-bottom: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 250px;
+  height: 70px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-family: rubik;
+  border: 2px solid #172156 !important;
+  color: #172156 !important;
+  background-color: #f4f7fe;
+}
+
+.floating {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width:100px;
+  height:50px;
+  font-size: 15px;
+}
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  background-color: white;
+  flex-grow: 1;
+  width: 80%;
+  height: 80%;
+  margin-top: 25px;
+  align-items: center;
+  filter: drop-shadow(-1px 2px 1px #d8d8d8);
+}

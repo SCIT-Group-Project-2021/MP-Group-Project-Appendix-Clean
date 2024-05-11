@@ -1,0 +1,38 @@
+<div class="titleBar">
+    <div style="display: flex;height:100%; width:fit-content; align-items: center;justify-content:left;">
+        <p style="font-size: 35px; text-wrap: nowrap;">Welcome Back {{username}}!</p>
+    </div>
+    <div style="flex-grow: 1;"></div>
+    <div style="display: flex;height:100%; width:fit-content; align-items: center;justify-content:right;">
+
+        <button style="height: 64px;width: 64px; border-radius: 15px; border: none; background: none" (mouseenter)="animateButton('addButton')" (mouseleave)="animateButton('addButton')" (click)="toggleOverlay()"  [@scale]="buttonStates.addButton">
+            <img class="addIcon">
+        </button>
+        <!-- TODO: implement whatever this is supposed to do-->
+        <button style="height: 64px;width: 64px; position: left; border: none; background: none"(mouseenter)="animateButton('notifButton')" matTooltip="Currently Unavailable, Work in Progress" (mouseleave)="animateButton('notifButton')"[@scale]="buttonStates.notifButton">
+            <div class='borderDiv' >
+                <img class="notifIcon">
+            </div>
+        </button>
+
+        <div style="font-size: 45px; opacity: 0.2; margin: 20px">|</div>
+            <p style="font-size: 35px; margin: 10px">{{username}}</p>
+            <img style="height: 64px; width: 64px; border-radius: 15px; margin: 10px" [src]=userPhoto>
+        <div style="width: 25px;"></div>
+    </div>
+</div>
+<div class="overlay" *ngIf="overlayEnabled">
+    <button mat-icon-button class="settingsButton" (click)="toggleOverlay()">
+        <mat-icon class="exit">close</mat-icon>
+    </button>
+    <button mat-button class="settingsButton" matTooltip="Currently Unavailable, Work in Progress">
+        <h1 style="color: rgb(51, 51, 51);">New Quiz</h1>
+    </button>
+    <button mat-button class="settingsButton">
+        <h1 style="color: rgb(50, 50, 50);">New Calendar Event</h1>
+    </button>
+    <button mat-button class="settingsButton" matTooltip="Currently Unavailable, Work in Progress">
+        <h1 style="color: rgb(50, 50, 50);">New Course</h1>
+    </button>
+
+</div>

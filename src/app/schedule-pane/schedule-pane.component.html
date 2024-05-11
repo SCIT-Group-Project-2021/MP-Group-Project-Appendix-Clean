@@ -1,0 +1,57 @@
+<div class="wrapper" @fade>
+  <div style="display: flex; flex-direction: column;" class="mainPanel">
+    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+    <div style="display: flex;">
+      <button mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" style="border-radius:50px 0px 0px 50px; width: 125px; height: 40px"> Previous </button>
+      <button mwlCalendarToday [(viewDate)]="viewDate" style="border-radius:0px 0px 0px 0px; width: 125px; height: 40px"> Today </button>
+      <button mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" style="border-radius:0px 50px 50px 00px; width: 125px; height: 40px"> Next </button>
+    </div>
+    <p-scrollPanel [style]="{ width: '100%', height: '100%' }" class="panel">
+      <mwl-calendar-week-view
+        class="calendar" 
+        [viewDate]="viewDate" 
+        [events]="events"
+        (eventTimesChanged) = "eventTimesChanged($event)"
+        (dayHeaderClicked) = "addCalendarEvent($event,true)"
+        (hourSegmentClicked)="addCalendarEvent($event, false)"
+        >
+      </mwl-calendar-week-view> 
+    </p-scrollPanel>
+  </div>
+</div>
+<div *ngIf="addOption" class="menuPane" style="position:fixed;background-color: rgba(0, 0, 0, 0.363);z-index:199;top:0;left:0;">
+  <div class="menuOverlay" >
+     <div class="menuOption">
+       <mat-form-field style="width: 100%;">
+         <mat-label>Event Title</mat-label>
+         <input matInput type="text" [min]="1" [(ngModel)]="eventName">
+     </mat-form-field>
+     </div>
+     
+   <div class="menuOption" *ngIf="!allDay">
+           <div>
+               <h2 style="margin: 0px; text-align:left">All Day Event</h2>
+           </div>
+           <div style="flex-grow: 1;"></div>
+           <mat-slide-toggle style="float: right;" color="primary" checked={{allDay}} (change)="allDayToggle()"></mat-slide-toggle>
+     </div>
+     <div class="menuOption" *ngIf="!allDay">
+       <div>
+           <h2 style="margin: 0px; text-align:left">Event Length</h2>
+           <p style="margin-top: 5px;">Set the Length of the Event</p>
+       </div>
+       <div style="flex-grow: 1;"></div>
+       <mat-slider min="1" max="24" step="1" showTickMarks discrete>
+           <input matSliderThumb [(ngModel)]="eventLength">
+       </mat-slider>
+   </div>
+     <div style="flex-grow: 1;"></div>
+     <div style="display: flex; width:100%; justify-content:center; height: 10%; margin-bottom: 25px;">
+         <button mat-flat-button color="primary" style="border-radius: 50px; width: 40%; height: 100%;" (click)="confirmEvent()">Add Event</button>
+     </div>
+    
+   </div>
+ </div>
+
+
+

@@ -1,0 +1,122 @@
+<div class= wrapper @fade>
+    <div class="mainContainer">
+
+        <div class="notifContainer">
+            <div class="notifItem">
+                <mat-card-content style="flex-direction: row;display: flex">
+                    <div style="background-color: #eafff7;height:60px; width: 60px; display:flex;justify-content: center; align-items: center; border-radius: 100%">
+                        <img class="courseIcon navIcon"/>
+                    </div>
+                    <div style="flex-direction: column;display: flex;justify-content: center;margin-left:15px">
+                        <mat-card-subtitle>Total Courses</mat-card-subtitle>
+                        <h1 style="margin: 0%;">1</h1>
+                    </div>
+
+                </mat-card-content>
+            </div>
+            <div class="notifItem">
+                <mat-card-content style="flex-direction: row;display: flex">
+                    <div style="background-color: #eafff7;height:60px; width: 60px; display:flex;justify-content: center; align-items: center; border-radius: 100%">
+                        <img class="reviewIcon navIcon"/>
+                    </div>
+                    <div style="flex-direction: column;display: flex;justify-content: center;margin-left:15px">
+                        <mat-card-subtitle>SCHEDULED REVIEWS</mat-card-subtitle>
+                        <h1 style="margin: 0%;">0</h1>
+                    </div>
+
+                </mat-card-content>
+            </div>
+            <div class="notifItem">
+                <mat-card-content style="flex-direction: row;display: flex">
+                    <div style="background-color: #EAFFF7;height:60px; width: 60px; display:flex;justify-content: center; align-items: center; border-radius: 100%">
+                        <img class="topicIcon navIcon"/>
+                    </div>
+                    <div style="flex-direction: column;display: flex;justify-content: center;margin-left:15px">
+                        <mat-card-subtitle>COMPLETED TOPICS</mat-card-subtitle>
+                        <h1 style="margin: 0%;">{{completedTopics}}</h1>
+                    </div>
+
+                </mat-card-content>
+            </div>
+            <div class="notifItem">
+                <mat-card-content style="flex-direction: row;display: flex">
+                    <div style="background-color: #EAFFF7;height:60px; width: 60px; display:flex;justify-content: center; align-items: center; border-radius: 100%">
+                        <img class="quizIcon navIcon"/>
+                    </div>
+                    <div style="flex-direction: column;display: flex;justify-content: center;margin-left:15px">
+                        <mat-card-subtitle>UPCOMING QUIZES</mat-card-subtitle>
+                        <h1 style="margin: 0%;">1</h1>
+                    </div>
+
+                </mat-card-content>
+            </div>
+        </div>
+
+        <div class="seperator">
+            Overview
+        </div>
+
+        <div class="overviewContainer">
+            <div class="overviewMain">
+                <div style="border-radius: 15px;height: 100%; width: 40%; display: flex; flex-direction:column;">
+                    <mat-card class="dashCards" style="background-color: #cfc8ff; height:25%">
+                        <mat-card-header>
+                            <mat-card-title>Current Streak</mat-card-title>
+                            <mat-card-subtitle>{{streakDays}} days</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <h3 style="color:white">
+                                Your Longest Streak is
+                            </h3>
+                            <p style="color:white">
+                                {{longestStreakDays}} days
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+                    <mat-card class="dashCards">
+                        <mat-card-content style="flex-direction: row;display: flex">
+                            <div style="background-color: #EAFFF7;height:70px; width: 70px; display:flex;justify-content: center; align-items: center; border-radius: 100%">
+                                <img class="sessionIcon navIcon"/>
+                            </div>
+                            <div style="flex-direction: column;display: flex;justify-content: center;margin-left:15px">
+                                <mat-card-subtitle>TOTAL SESSIONS</mat-card-subtitle>
+                                <h1 style="margin: 0%;color:white">{{totalSessions}}</h1>
+                            </div>
+
+                        </mat-card-content>
+                    </mat-card>
+                    <mat-card class="dashCards">
+                        <mat-card-content style="flex-direction: row;display: flex">
+                            <div style="background-color: #EAFFF7;height:70px; width: 70px; display:flex;justify-content: center; align-items: center; border-radius: 100%">
+                                <img class="completedQuizIcon navIcon"/>
+                            </div>
+                            <div style="flex-direction: column;display: flex;justify-content: center;margin-left:15px">
+                                <mat-card-subtitle>COMPLETED QUIZES</mat-card-subtitle>
+                                <h1 style="margin: 0%;color:white">{{completedQuizCnt}}</h1>
+                            </div>
+
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div style="border-radius: 15px;height: 100%; width: 60%; display: flex; flex-direction:column;justify-content:center; align-items: center">
+                    <p-chart type="pie" [data]="dataCircle" [options]="options" style="height: 80%; width: 70%; margin:0px"></p-chart>
+                </div>
+            </div>
+            <div class="overviewEvents">
+                <div style="margin: 30px;">
+                    <h1>Events</h1>
+
+                    <div class="eventItem" style="margin-top:30px;" *ngFor="let event of events; let i = index" >
+                        <div *ngIf="i<5" (click)="goToTab('schedule')" style="cursor: pointer;">
+                            <h4 style="text-align: left;margin-left: 15px;">{{event.title}}</h4>
+                            <p style="text-align: left;margin-left: 15px;">{{event.start.toLocaleString()}}</p>
+                            <mat-divider style="margin: 30px 30px 0px  30px;"></mat-divider>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

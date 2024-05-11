@@ -1,0 +1,59 @@
+<div class="pane">
+  <form [formGroup]="form" class="leftPane" @fade>
+    <h1>Create your account</h1>
+    <div class="full-name">
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input type="text" matInput placeholder="First name" style="margin-bottom: 5px;" formControlName="fName">
+        <mat-error *ngIf="form.get('fName')!.hasError('required')">
+          First name is required
+        </mat-error>
+      </mat-form-field>
+      <div style="width: 22px;"></div>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input type="text" matInput placeholder="Last name" style="margin-bottom: 5px;" formControlName="lName">
+        <mat-error *ngIf="form.get('lName')!.hasError('required')">
+          Last name is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <mat-form-field color="primary" appearance="fill">
+      <mat-label>Date of Birth</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dob">
+      <!--<mat-hint>MM/DD/YYYY</mat-hint>-->
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker color="primary"></mat-datepicker>
+      <mat-error *ngIf="form.get('dob')!.hasError('required')">
+        Date of birth is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput placeholder="Ex. pat@example.com" style="margin-bottom: 5px;" formControlName="email">
+      <mat-error *ngIf="form.get('email')!.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="form.get('email')!.hasError('email')">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" matInput placeholder="password" formControlName="password" style="">
+      <button mat-icon-button matIconSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" style="position: relative;">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="form.get('password')!.hasError('required')">
+        Password is required
+      </mat-error>
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="activeButtons" [disabled]="!form.valid" test-id="register-button" (click)="register()" *ngIf="!isRegistering">Get Started</button>
+    <button mat-flat-button color="primary" class="activeButtons" test-id="register-loader" *ngIf="isRegistering">
+      <mat-spinner color="accent" diameter="28"></mat-spinner>
+    </button>
+    <button mat-stroked-button color="primary" class="activeButtons" (click)="toLogIn()">CANCEL</button>
+
+  </form>
+  <div class="rightPane" @invert></div>
+</div>
